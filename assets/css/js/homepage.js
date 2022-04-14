@@ -1,11 +1,14 @@
-fetch("https://api.github.com/users/octocat/repos").then(function(response) {
-  response.json().then(function(data) {
-    console.log(data);
-  });
-});
+var getUserRepos = function(user) {
+  // format the github api url
+  var apiUrl = "https://api.github.com/users/" + user + "/repos";
 
-var getUsersRepos = function() {
-  fetch("https://api.github.com/users/octocat/repos");
+  // make a get request to url
+  fetch(apiUrl).then(function(response) {
+    console.log(response);
+    response.json().then(function(data) {
+      console.log(data);
+    });
+  });
 };
 
-getUsersRepos();
+getUserRepos("lernantino");
